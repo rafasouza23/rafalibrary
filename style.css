@@ -1,0 +1,306 @@
+:root {
+    --bg-main: #f0f0f0;
+    --bg-card: #fcfbf9;
+    --border-color: #dcd6cd;
+    --text-primary: #221c1a;
+    --text-muted: #6b625b;
+    --vintage-red-dark: #4a0e17;
+    --vintage-red: #7a1824;
+    --vintage-red-hover: #9c2231;
+    --accent-gold: #c5a059;
+    --status-open-bg: #fbf0f0;
+    --status-open-text: #8b1e2b;
+    --status-closed-bg: #f0f6f2;
+    --status-closed-text: #1d6039;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER ELEGANTE VINTAGE */
+.site-header {
+    background-color: var(--vintage-red-dark);
+    color: #ffffff;
+    padding: 28px 20px;
+    border-bottom: 3px solid var(--accent-gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #f7f3ec;
+}
+
+.brand-title p {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    margin-top: 2px;
+}
+
+.system-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    border-radius: 2px;
+}
+
+/* NAVEGAÇÃO */
+.main-nav {
+    background-color: #1a1615;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #b5ad9e;
+    padding: 16px 28px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.nav-btn.active {
+    color: #ffffff;
+    background-color: var(--vintage-red);
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+/* LAYOUT PRINCIPAL */
+.content-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    margin: 35px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.aba {
+    display: none;
+}
+
+.aba.active {
+    display: block;
+}
+
+/* PAINÉIS E CARDS */
+.panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--vintage-red);
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.panel-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--vintage-red-dark);
+}
+
+/* FORMULÁRIOS */
+.form-row {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+
+input, select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    background-color: #ffffff;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--vintage-red);
+}
+
+/* BOTÕES */
+.btn {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--vintage-red);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--vintage-red-hover);
+}
+
+.btn-danger-outline {
+    background: transparent;
+    border: 1px solid #c93b3b;
+    color: #c93b3b;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-danger-outline:hover {
+    background: #c93b3b;
+    color: #ffffff;
+}
+
+.btn-action-resolve {
+    background-color: var(--vintage-red);
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.btn-action-resolve:hover {
+    background-color: var(--vintage-red-hover);
+}
+
+/* TABELAS CORPORATIVAS */
+.table-responsive {
+    overflow-x: auto;
+    padding: 0 24px 24px 24px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.data-table th, .data-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.88rem;
+}
+
+.data-table th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    background-color: #f5f2ec;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+/* BADGES DE STATUS */
+.status-badge {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.status-aberto {
+    background-color: var(--status-open-bg);
+    color: var(--status-open-text);
+    border: 1px solid #f3c2c2;
+}
+
+.status-devolvido {
+    background-color: var(--status-closed-bg);
+    color: var(--status-closed-text);
+    border: 1px solid #bce2ca;
+}
+
+/* FOOTER */
+.site-footer {
+    background-color: #1a1615;
+    color: #8c8275;
+    text-align: center;
+    padding: 24px;
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+}

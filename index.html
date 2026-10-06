@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafa'Library- Sistema de Gestão Bibliotecária</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="brand-title">
+                <h1>RAFA'S LIBRARY</h1>
+                <p>SISTEMA BIBLIOTECÁRIO</p>
+            </div>
+            <div class="header-meta">
+                <span class="system-status">SISTEMA ATIVO</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="mostrarAba('livros')">Acervo de Livros</button>
+            <button class="nav-btn" onclick="mostrarAba('usuarios')">Leitores & Usuários</button>
+            <button class="nav-btn" onclick="mostrarAba('emprestimos')">Gestão de Empréstimos</button>
+        </div>
+    </nav>
+
+    <main class="content-wrapper">
+
+        <!-- SEÇÃO: LIVROS -->
+        <section id="aba-livros" class="aba active">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Cadastrar Nova Obra</h2>
+                </div>
+                <form id="form-livro" class="form-row">
+                    <div class="form-group">
+                        <label for="titulo-livro">Título do Livro</label>
+                        <input type="text" id="titulo-livro" placeholder="Ex: Memórias Póstumas de Brás Cubas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="autor-livro">Autor / Autora</label>
+                        <input type="text" id="autor-livro" placeholder="Ex: Machado de Assis" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar ao Acervo</button>
+                </form>
+            </div>
+
+            <div class="panel mt-24">
+                <div class="panel-header">
+                    <h2>Livros Registrados no Acervo</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Identificador (ID)</th>
+                                <th class="text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-livros"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: USUÁRIOS -->
+        <section id="aba-usuarios" class="aba">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Cadastrar Novo Leitor</h2>
+                </div>
+                <form id="form-usuario" class="form-row">
+                    <div class="form-group">
+                        <label for="nome-usuario">Nome Completo</label>
+                        <input type="text" id="nome-usuario" placeholder="Ex: Gabriel Garcia Marques" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Leitor</button>
+                </form>
+            </div>
+
+            <div class="panel mt-24">
+                <div class="panel-header">
+                    <h2>Base de Leitores Cadastrados</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nome do Leitor</th>
+                                <th>ID Cadastro</th>
+                                <th class="text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-usuarios"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: EMPRÉSTIMOS -->
+        <section id="aba-emprestimos" class="aba">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Registrar Novo Empréstimo</h2>
+                </div>
+                <form id="form-emprestimo" class="form-row">
+                    <div class="form-group">
+                        <label for="select-livro">Obra Selecionada</label>
+                        <select id="select-livro" required>
+                            <option value="">Carregando acervo...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-usuario">Leitor Requisitante</label>
+                        <select id="select-usuario" required>
+                            <option value="">Carregando leitores...</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Confirmar Empréstimo</button>
+                </form>
+            </div>
+
+            <div class="panel mt-24">
+                <div class="panel-header">
+                    <h2>Histórico e Registro de Circulação</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Obra</th>
+                                <th>Autor</th>
+                                <th>Leitor</th>
+                                <th>Empréstimo</th>
+                                <th>Devolução</th>
+                                <th>Status</th>
+                                <th class="text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-emprestimos"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Rafa'Library. Todos os direitos reservados à Rafael Souza.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
